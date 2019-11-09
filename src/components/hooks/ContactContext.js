@@ -15,7 +15,7 @@ const initialState = {
 // Create a store component which manage the state
 // 1. Render ContactContext.Provider
 // 2. Wrap "children" props into Provider
-// 3. pass the state as "value" props
+// 3. pass the state as Provider's "value" props
 // 4. Wrap the whole App in the Store component (index.js)
 export const ContactStore = ({ children }) => {
   const [users, setUsers] = useState(initialState.users);
