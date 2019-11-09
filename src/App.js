@@ -1,17 +1,11 @@
 import React from 'react';
 import './App.css';
-import ControlledInput from './components/inputs/ControlledInput';
-import {
-  RefInput,
-  RefInputStateless,
-} from './components/inputs/UncontrolledInput';
+import Board from './components/hooks/Board';
 
 function App() {
   return (
     <div className="App">
-      <ControlledInput />
-      <RefInput />
-      <RefInputStateless />
+      <Board />
     </div>
   );
 }
