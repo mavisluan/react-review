@@ -19,21 +19,15 @@ This is a React practice repo which contains small components organized by featu
         - render Provider Component
         - pass the state as Provider's "value" props
         - wrap {children} inside Provider
-        <ContactContext.Provider value= {someValue}>
-            {children} 
-        </ContactContext.Provider>
         
     3. Wrap the whole App in the Store component <br/>
-      <ContactStore> 
-        <App />
-      </ContactStore>
 
 - ContactBoard: It doesn't use any data from the state
     
 - ContactList: Use ({users, setEditId, setUsers}) from the state
    - render Consumer Component
-   - wrap {() => ( some code to show the view)} inside Consumer
+   - wrap {() => ( some code to display the view)} inside Consumer
 
 - ContactForm: ControlledInput: Use ({ editId, updateFormState, updateUser,addUser, cancelUpdate, user: { name, phone } from the state
     - render Consumer Component
-   - wrap {() => ( some code to show the view)} inside Consumer
+   - wrap {() => ( some code to display the view)} inside Consumer
