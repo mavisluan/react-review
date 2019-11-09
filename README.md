@@ -8,3 +8,4 @@ This is a React practice repo which contains small components organized by featu
     - An uncontrolled component is where the form data is handled by the DOM instead of the React component.
     - Demo: Input a value and click on the button to get the value from alert
 
+## Hooks
