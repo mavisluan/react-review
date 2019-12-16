@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import ContactBoard from './components/hooks/ContactBoard';
+import CountingParent from './components/class/CoutingParent';
 
 function App() {
   return (
     <div className="App">
-      <ContactBoard />
+      <CountingParent />
     </div>
   );
 }
