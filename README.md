@@ -50,5 +50,6 @@ This is a React practice repo which contains small components organized by featu
   - pass the event handler function to Child component
   - Notes: Every instance of a component has its own state
 
-- Child: stateless component
-  - trigger the state change by onClick event of the button
+- ParentNoConstructor: class component without constructor
+  - decalre state
+  - write handler with arrow functions to avoid binding 'this'
