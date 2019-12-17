@@ -26,8 +26,7 @@ export default class CoutingParent extends Component {
     });
   }
 
-  resetCounter(action) {
-    const { actionCount } = this.state;
+  resetCounter() {
     this.setState({
       actionCount: 0,
     });
