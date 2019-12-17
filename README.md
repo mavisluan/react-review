@@ -41,13 +41,14 @@ This is a React practice repo which contains small components organized by featu
 
 ### class with constructor
 
-- CountingParent: written in class with constructor
+- CountingParent: class component with constructor
 
   - inside constructor
     - super(props)
     - declare state
     - bind the event handler function
   - pass the event handler function to Child component
+  - Notes: Every instance of a component has its own state
 
 - Child: stateless component
   - trigger the state change by onClick event of the button
