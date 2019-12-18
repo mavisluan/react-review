@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Switch from './Switch';
 import Light from './Light';
+import Room from './Room';
 
 export default class House extends Component {
   state = {
@@ -68,34 +69,55 @@ export default class House extends Component {
       <div className="mt-5">
         <Row className="py-5">
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={kitchen} room="kitchen" />
-            <Switch toggleSwitch={this.toggleKitchenLight} />
+            <Room
+              lightStatus={kitchen}
+              room="kitchen"
+              toggleSwitch={this.toggleKitchenLight}
+            />
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={bathroom} room="bathroom" />
-            <Switch toggleSwitch={this.toggleBathroomLight} />
+            <Room
+              lightStatus={bathroom}
+              room="bathroom"
+              toggleSwitch={this.toggleBathroomLight}
+            />
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={livingRoom} room="livingRoom" />
-            <Switch toggleSwitch={this.toggleLivingRoomLight} />
+            <Room
+              lightStatus={livingRoom}
+              room="livingRoom"
+              toggleSwitch={this.toggleLivingRoomLight}
+            />
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={bedroom} room="bedroom" />
-            <Switch toggleSwitch={this.toggleBedroomLight} />
+            <Room
+              lightStatus={bedroom}
+              room="bedroom"
+              toggleSwitch={this.toggleBedroomLight}
+            />
           </Col>
         </Row>
         <Row className="py-5">
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={guestRoom} room="guestRoom" />
-            <Switch toggleSwitch={this.toggleGuestRoomLight} />
+            <Room
+              lightStatus={guestRoom}
+              room="guestRoom"
+              toggleSwitch={this.toggleGuestRoomLight}
+            />
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={study} room="study" />
-            <Switch toggleSwitch={this.toggleStudyLight} />
+            <Room
+              lightStatus={study}
+              room="study"
+              toggleSwitch={this.toggleStudyLight}
+            />
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <Light lightStatus={partyRoom} room="partyRoom" />
-            <Switch toggleSwitch={this.togglePartyRoomLight} />
+            <Room
+              lightStatus={partyRoom}
+              room="partyRoom"
+              toggleSwitch={this.togglePartyRoomLight}
+            />
           </Col>
         </Row>
       </div>
