@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import lightOn from '../../icons/light_on.png';
-import lightOff from '../../icons/light_off.png';
+import { Row, Col } from 'react-bootstrap';
 import Switch from './Switch';
+import Light from './Light';
 
 export default class House extends Component {
   state = {
@@ -9,6 +9,11 @@ export default class House extends Component {
     bathroom: false,
     livingRoom: true,
     bedroom: false,
+    rooms: {
+      guestRoom: true,
+      study: false,
+      partyRoom: true,
+    },
   };
 
   // shallow Merge
@@ -24,47 +29,75 @@ export default class House extends Component {
   toggleBedroomLight = () =>
     this.setState(state => ({ bedroom: !state.bedroom }));
 
+  // deep merge: update data nestesd in an object
+  // use spread operator to spread the object, then update the nested data
+  toggleGuestRoomLight = () =>
+    this.setState(state => ({
+      rooms: {
+        ...state.rooms,
+        guestRoom: !state.rooms.guestRoom,
+      },
+    }));
+
+  toggleStudyLight = () =>
+    this.setState(state => ({
+      rooms: {
+        ...state.rooms,
+        study: !state.rooms.study,
+      },
+    }));
+
+  togglePartyRoomLight = () =>
+    this.setState(state => ({
+      rooms: {
+        ...state.rooms,
+        partyRoom: !state.rooms.partyRoom,
+      },
+    }));
+
   render() {
-    const { kitchen, bathroom, livingRoom, bedroom } = this.state;
+    const {
+      kitchen,
+      bathroom,
+      livingRoom,
+      bedroom,
+      rooms: { guestRoom, study, partyRoom },
+    } = this.state;
 
     return (
       <div className="mt-5">
-        <div>
-          Kitchen Lights:
-          <img
-            src={kitchen ? lightOn : lightOff}
-            width="100rem"
-            alt="light_bulb"
-          />
-          <Switch toggleSwitch={this.toggleKitchenLight} />
-        </div>
-        <div>
-          Bathroom Lights:
-          <img
-            src={bathroom ? lightOn : lightOff}
-            width="100rem"
-            alt="light_bulb"
-          />
-          <Switch toggleSwitch={this.toggleBathroomLight} />
-        </div>
-        <div>
-          Living Room Lights:
-          <img
-            src={livingRoom ? lightOn : lightOff}
-            width="100rem"
-            alt="light_bulb"
-          />
-          <Switch toggleSwitch={this.toggleLivingRoomLight} />
-        </div>
-        <div>
-          Bedroom Lights:
-          <img
-            src={bedroom ? lightOn : lightOff}
-            width="100rem"
-            alt="light_bulb"
-          />
-          <Switch toggleSwitch={this.toggleBedroomLight} />
-        </div>
+        <Row className="py-5">
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={kitchen} room="kitchen" />
+            <Switch toggleSwitch={this.toggleKitchenLight} />
+          </Col>
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={bathroom} room="bathroom" />
+            <Switch toggleSwitch={this.toggleBathroomLight} />
+          </Col>
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={livingRoom} room="livingRoom" />
+            <Switch toggleSwitch={this.toggleLivingRoomLight} />
+          </Col>
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={bedroom} room="bedroom" />
+            <Switch toggleSwitch={this.toggleBedroomLight} />
+          </Col>
+        </Row>
+        <Row className="py-5">
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={guestRoom} room="guestRoom" />
+            <Switch toggleSwitch={this.toggleGuestRoomLight} />
+          </Col>
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={study} room="study" />
+            <Switch toggleSwitch={this.toggleStudyLight} />
+          </Col>
+          <Col xs={6} sm={6} md={3}>
+            <Light lightStatus={partyRoom} room="partyRoom" />
+            <Switch toggleSwitch={this.togglePartyRoomLight} />
+          </Col>
+        </Row>
       </div>
     );
   }
