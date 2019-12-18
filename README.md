@@ -11,6 +11,8 @@ This is a React practice repo which contains small components organized by featu
 
 ## Hooks
 
+### A CRUD app with hooks
+
 - ContactContext
 
   1. Create a context object with React.createContext()
