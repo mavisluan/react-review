@@ -21,35 +21,47 @@ This is a React practice repo which contains small components organized by featu
   2. Create a Store Component (ContactStore Component)
 
      - Create state with useState
-     - render Provider Component
-     - pass the state as Provider's "value" props
-     - wrap {children} inside Provider
+     - Render Provider Component
+     - Pass the state as Provider's "value" props
+     - Wrap {children} inside Provider
 
   3. Wrap the whole App in the Store component <br/>
 
 - ContactBoard: It doesn't use any data from the state
 - ContactList: Use ({users, setEditId, setUsers}) from the state
 
-  - render Consumer Component
-  - wrap {() => ( some code to display the view)} inside Consumer
+  - Render Consumer Component
+  - Wrap {() => ( some code to display the view)} inside Consumer
 
 - ContactForm: ControlledInput: Use ({ editId, updateFormState, updateUser,addUser, cancelUpdate, user: { name, phone } from the state
-  - render Consumer Component
-  - wrap {() => ( some code to display the view)} inside Consumer
+  - Render Consumer Component
+  - Wrap {() => ( some code to display the view)} inside Consumer
 
 ## state management
 
-### class with constructor
+### class component
 
 - CountingParent: class component with constructor
 
-  - inside constructor
+  - Inside constructor
     - super(props)
     - declare state
     - bind the event handler function
-  - pass the event handler function to Child component
+  - Pass the event handler function to Child component
   - Notes: Every instance of a component has its own state
 
 - ParentNoConstructor: class component without constructor
-  - decalre state
-  - write handler with arrow functions to avoid binding 'this'
+  - Decalre state
+  - Write handler with arrow functions to avoid binding 'this'
+
+### state merge
+
+- House component
+
+  - Shallow Merge: (Update one property of an object)
+
+    - When calling this.setState, it will shallow merge the properties in your object with the current state.
+
+  - Deep Merge: (Update a property in a nested object)
+    - First spread the object.
+    - Update the nested property of the object.
