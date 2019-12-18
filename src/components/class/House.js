@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Switch from './Switch';
-import Light from './Light';
 import Room from './Room';
 
 export default class House extends Component {
