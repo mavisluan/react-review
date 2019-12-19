@@ -67,3 +67,15 @@ This is a React practice repo which contains small components organized by featu
   - Deep Merge: (Update a property in a nested object)
     - First spread the object.
     - Update the nested property of the object.
+
+## API request
+
+- FetchWithAxios class Component
+  - axios
+    1. Uses Promises
+    2. Automatically parses JSON
+    3. treats non-200 responses as errors
+  - componentDidMount
+    - is executed only once after the component mounts for the first time
+    - make API requests and update the state with the response data
+    - Notes: 'clearPosts' and 'Get Posts' update the state and cause re-rendering, but 'componentDidMount' will not be executed.
