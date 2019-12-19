@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Loading() {
-  return (
-    <div>
-      <span className="display-4 text-danger">Loading</span>
-    </div>
-  );
-}
+const Loading = () => (
+  <div>
+    <span className="text-danger display-4">Loading</span>
+  </div>
+);
 
 export default Loading;
