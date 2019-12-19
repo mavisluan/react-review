@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Loading from './Loading';
 
-class FetchWithAxios extends Component {
+class FetchData extends Component {
   // initialize the state at the top
   state = { posts: [], loading: true };
 
@@ -88,4 +88,4 @@ class FetchWithAxios extends Component {
   }
 }
 
-export default FetchWithAxios;
+export default FetchData;
