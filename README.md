@@ -68,6 +68,16 @@ This is a React practice repo which contains small components organized by featu
     - First spread the object.
     - Update the nested property of the object.
 
+### convert a class component into a function component with useState
+
+- OneTimeButtonClass (class component)
+- OneTimeButtonHooks (function component)
+
+### update state based on the previous state
+
+- Counter
+  - setCounter(counter => counter + 2);
+
 ## API request
 
 - FetchData class Component
