@@ -6,7 +6,10 @@ class FetchWithAxios extends Component {
   // initialize the state at the top
   state = { posts: [], loading: true };
 
+  // is executed after the component mounts for the first time
+  // is only executed once during the component's life time
   componentDidMount() {
+    console.log('[componentDidMount]');
     this.fetchData();
   }
 
@@ -15,7 +18,7 @@ class FetchWithAxios extends Component {
       .get(`https://www.reddit.com/r/reactjs.json`)
       .then(res => {
         const posts = res.data.data.children.map(obj => obj.data);
-        console.log(posts);
+        console.log('fetched data', posts);
         // this.setState updates the component's state
         // This triggers a re-render
         this.setState({ posts, loading: false });
@@ -26,22 +29,32 @@ class FetchWithAxios extends Component {
   };
 
   render() {
+    console.log('[render]');
+
     const { posts, loading } = this.state;
+    // console.log(`State Posts: ${posts}`);
     return (
       <div className="m-5">
-        {/* <button
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={() => this.setState({ posts: [] })}
+        >
+          Clear Posts
+        </button>
+        <button
           type="button"
           onClick={() => this.fetchData()}
-          className="btn-warning rounded"
+          className="btn btn-warning rounded"
         >
           Get Posts About React
-        </button> */}
+        </button>
         {loading ? (
           <Loading />
         ) : (
           posts.map(post => (
             <div key={post.id} className="text-left p-2">
-              <b>Title:</b>{' '}
+              <b>Title:</b>
               <span className="text-primary ml-2">
                 {post.title ? post.title : 'No title'}
               </span>
