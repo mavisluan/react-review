@@ -70,11 +70,22 @@ This is a React practice repo which contains small components organized by featu
 
 ## API request
 
-- FetchWithAxios class Component
+- FetchData class Component
+
   - axios
+
     1. Uses Promises
     2. Automatically parses JSON
     3. treats non-200 responses as errors
+    4. returns data object
+
+  - fetch
+
+    1. built in to the modern browser
+    2. requires to parse JSON responses
+    3. treates every response as success, including 404s and 500s
+    4. returns response object
+
   - componentDidMount
     - is executed only once after the component mounts for the first time
     - make API requests and update the state with the response data
