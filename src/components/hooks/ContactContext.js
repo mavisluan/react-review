@@ -54,7 +54,7 @@ export const ContactStore = ({ children }) => {
       }
       return u;
     });
-    setUsers(users);
+    setUsers(newUsers);
     setEditId(null);
     setUser(initialState.user);
   };
