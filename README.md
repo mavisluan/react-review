@@ -58,14 +58,14 @@ This is a React practice repo which contains small components organized by featu
 
 ### state merge
 
-- House component
+- House component (class component)
 
   - Shallow Merge: (Update one property of an object)
 
     - When calling this.setState, it will shallow merge the properties in your object with the current state.
 
   - Deep Merge: (Update a property in a nested object)
-    - First spread the object.
+    - To copy in all the other parts that you don't intend to change (Use the spread operator ...)
     - Update the nested property of the object.
 
 ### convert a class component into a function component with useState
