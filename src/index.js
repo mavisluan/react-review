@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { ContactStore } from './components/hooks/ContactContext';
+import { ContactStore } from './components/hooks/CRUD/ContactContext';
 
 // Wrap <App> with ContactStore
 ReactDOM.render(
