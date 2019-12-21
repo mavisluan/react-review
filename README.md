@@ -68,6 +68,11 @@ This is a React practice repo which contains small components organized by featu
     - To copy in all the other parts that you don't intend to change (Use the spread operator ...)
     - Update the nested property of the object.
 
+- UpdateState (function component && hooks)
+  - Room (state is boolean)
+  - RandomList (state is an array)
+  - AudioControls (state is an object)
+
 ### convert a class component into a function component with useState
 
 - OneTimeButtonClass (class component)
