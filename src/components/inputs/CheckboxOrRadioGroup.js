@@ -1,0 +1,39 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Form } from 'react-bootstrap';
+
+const CheckboxOrRadioGroup = ({
+  title,
+  options,
+  type,
+  selected,
+  controlFunction,
+  setName,
+}) => (
+  <Form.Group>
+    <Form.Label>{title}</Form.Label>
+    {options.map((item, index) => (
+      <Form.Check
+        key={index}
+        type={type}
+        label={item}
+        name={item}
+        value={item}
+        checked={selected.includes(item)}
+        onChange={() => controlFunction({ selected, item, setName })}
+        className="col-6"
+      ></Form.Check>
+    ))}
+  </Form.Group>
+);
+
+CheckboxOrRadioGroup.propTypes = {
+  title: PropTypes.string.isRequired,
+  setName: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  selected: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired,
+  controlFunction: PropTypes.func.isRequired,
+};
+
+export default CheckboxOrRadioGroup;
