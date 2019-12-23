@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Form, Row, Col } from 'react-bootstrap';
 
+const petTypes = [
+  'dog',
+  'cat',
+  'rabbit',
+  'iguana',
+  'pony',
+  'ferret',
+  'fish',
+  'bird',
+];
+
 const MultipleInputs = () => {
   const initialState = {
     fullName: '',
     ageRange: '',
-    adoptType: {
-      dog: true,
-      cat: true,
-      rabbit: false,
-      iguana: false,
-      pony: false,
-      ferret: true,
-      fish: false,
-      bird: false,
-    },
+    adoptType: ['dog', 'cat', 'ferret'],
     onePlus: true,
     currPetCount: 0,
     currPetInfo: '',
@@ -43,6 +45,8 @@ const MultipleInputs = () => {
     setAdoptInfo({ ...adoptInfo, [name]: value });
   };
 
+  // handle checkbox
+
   return (
     <Container>
       <h3 className="py-3">Pet Adoption Form</h3>
@@ -67,15 +71,30 @@ const MultipleInputs = () => {
         </Form.Group>
         <Form.Group>
           <Form.Label>Which kinds of pets would you like to adopt?</Form.Label>
-          {Object.keys(adoptType).map((pet, index) => (
+          {petTypes.map((pet, index) => (
             <Form.Check
               key={index}
               type="checkbox"
               label={pet}
-              name={pet}
-              value={pet}
-              checked={adoptType[pet]}
-              onChange={handleInput}
+              //   name={pet}
+              //   value={pet}
+              checked={adoptType.includes(pet)}
+              onClick={() => {
+                if (!adoptType.includes(pet)) {
+                  console.log(`pet not selected`, pet);
+
+                  setAdoptInfo({
+                    ...adoptInfo,
+                    adoptType: [...adoptType, pet],
+                  });
+                } else {
+                  console.log(`pet selected`, pet);
+                  setAdoptInfo({
+                    ...adoptInfo,
+                    adoptType: adoptType.filter(type => type !== pet),
+                  });
+                }
+              }}
               className="col-6"
             ></Form.Check>
           ))}
@@ -133,8 +152,15 @@ const MultipleInputs = () => {
         </Form.Group>
       </Form>
       <div>
-        <p>Input info: fullName: {fullName}</p>
+        <h3>Form input info</h3>
+        <p> fullName: {fullName}</p>
         <p>AgeRange: {ageRange}</p>
+        <p>
+          Pet Types:{' '}
+          {adoptType.map((pet, index) => (
+            <span key={index}>{pet}, </span>
+          ))}
+        </p>
         <p>one Plus: {onePlus ? 'Yes' : 'No'}</p>
         <p>currPetCount: {currPetCount}</p>
         <p>Description: {currPetInfo}</p>
