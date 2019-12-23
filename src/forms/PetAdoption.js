@@ -1,6 +1,15 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import {
+  Container,
+  Form,
+  Button,
+  Card,
+  ListGroup,
+  Row,
+  Col,
+  ListGroupItem,
+} from 'react-bootstrap';
 import SingleInput from './SingleInput';
 import Select from './Select';
 import CheckboxOrRadioGroup from './CheckboxOrRadioGroup';
@@ -18,6 +27,7 @@ const petOptions = [
 ];
 
 const siblingsOptions = ['Yes', 'No'];
+const ageOptions = ['18-25', '26-59', '60 or older'];
 
 const PetAdoption = () => {
   const initialState = {
@@ -118,7 +128,7 @@ const PetAdoption = () => {
           setValue={fullName}
           handleInput={handleInput}
         />
-        <Select handleInput={handleInput} />
+        <Select handleInput={handleInput} options={ageOptions} />
         <CheckboxOrRadioGroup
           title="Which kinds of pets would you like to adopt?"
           setName="adoptPets"
@@ -162,33 +172,35 @@ const PetAdoption = () => {
           </Button>
         </div>
       </Form>
-      <div className="mt-3">
-        <h3>Form input info</h3>
-        <p>
-          fullName: <span className="text-primary"> {fullName}</span>{' '}
-        </p>
-        <p>
-          AgeRange: <span className="text-warning"> {ageRange}</span>{' '}
-        </p>
-        <p>
-          Pet Types:
-          {adoptPets.map((pet, index) => (
-            <span key={index} className="text-primary ml-2">
-              {index === adoptPets.length - 1 ? pet : `${pet},`}
-            </span>
-          ))}
-        </p>
-        <p>
-          Adopt siblings:
-          <span className="text-warning"> {adoptSiblings[0]}</span>
-        </p>
-        <p>
-          currPetCount:<span className="text-primary"> {currPetCount}</span>{' '}
-        </p>
-        <p>
-          Description: <span className="text-warning"> {currPetInfo}</span>
-        </p>
-      </div>
+      <Card style={{ width: '18rem' }}>
+        <Card.Header>Input confirmation</Card.Header>
+        <ListGroup variant="flush">
+          <ListGroup.Item>
+            FullName: <span className="text-primary"> {fullName}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            AgeRange: <span className="text-warning"> {ageRange}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            Pet Types:
+            {adoptPets.map((pet, index) => (
+              <span key={index} className="text-primary ml-2">
+                {index === adoptPets.length - 1 ? pet : `${pet},`}
+              </span>
+            ))}
+          </ListGroup.Item>
+          <ListGroup.Item>
+            Adopt siblings:
+            <span className="text-warning"> {adoptSiblings[0]}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            currPetCount:<span className="text-primary"> {currPetCount}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            Description: <span className="text-warning"> {currPetInfo}</span>
+          </ListGroup.Item>
+        </ListGroup>
+      </Card>
     </Container>
   );
 };
