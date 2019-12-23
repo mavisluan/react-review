@@ -1,6 +1,6 @@
+/* eslint-disable no-shadow */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Form } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 
 const petTypes = [
   'dog',
@@ -18,7 +18,7 @@ const MultipleInputs = () => {
     fullName: '',
     ageRange: '',
     adoptType: ['dog', 'cat', 'ferret'],
-    onePlus: true,
+    adoptSiblings: true,
     currPetCount: 0,
     currPetInfo: '',
   };
@@ -27,7 +27,7 @@ const MultipleInputs = () => {
     fullName,
     ageRange,
     adoptType,
-    onePlus,
+    adoptSiblings,
     currPetCount,
     currPetInfo,
   } = adoptInfo;
@@ -36,7 +36,7 @@ const MultipleInputs = () => {
   const handleInput = e => {
     let { value, name } = e.target;
     // convert input from string to Boolean
-    if (name === 'onePlus') {
+    if (name === 'adoptSiblings') {
       value = value === 'true';
     }
 
@@ -61,8 +61,43 @@ const MultipleInputs = () => {
       });
     }
   };
+
+  // handle reset
+  const handleReset = () =>
+    setAdoptInfo({
+      fullName: '',
+      ageRange: '',
+      adoptType: [],
+      adoptSiblings: null,
+      currPetCount: 0,
+      currPetInfo: '',
+    });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const {
+      fullName,
+      ageRange,
+      adoptType,
+      adoptSiblings,
+      currPetCount,
+      currPetInfo,
+    } = adoptInfo;
+
+    const postData = {
+      fullName,
+      ageRange,
+      adoptType,
+      adoptSiblings,
+      currPetCount,
+      currPetInfo,
+    };
+
+    console.log('Send data in a POST request', postData);
+    handleReset();
+  };
   return (
-    <Container>
+    <Container className="border border-secondary shadow">
       <h3 className="py-3">Pet Adoption Form</h3>
       <Form>
         <Form.Group>
@@ -93,7 +128,7 @@ const MultipleInputs = () => {
               name={pet}
               value={pet}
               checked={adoptType.includes(pet)}
-              onClick={() => handleCheckbox(pet)}
+              onChange={() => handleCheckbox(pet)}
               className="col-6"
             ></Form.Check>
           ))}
@@ -108,17 +143,17 @@ const MultipleInputs = () => {
               inline
               type="radio"
               label="Yes"
-              name="onePlus"
+              name="adoptSiblings"
               value
-              checked={onePlus}
+              checked={adoptSiblings === true}
               onChange={handleInput}
             ></Form.Check>
             <Form.Check
               inline
               type="radio"
               label="No"
-              checked={!onePlus}
-              name="onePlus"
+              checked={adoptSiblings === false}
+              name="adoptSiblings"
               value={false}
               onChange={handleInput}
               className="offset-6"
@@ -150,8 +185,16 @@ const MultipleInputs = () => {
             onChange={handleInput}
           ></Form.Control>
         </Form.Group>
+        <div className="d-flex justify-content-between">
+          <Button variant="link" type="button" onClick={handleReset}>
+            Clear Form
+          </Button>
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </div>
       </Form>
-      <div>
+      <div className="mt-3">
         <h3>Form input info</h3>
         <p>
           fullName: <span className="text-primary"> {fullName}</span>{' '}
@@ -169,7 +212,7 @@ const MultipleInputs = () => {
         </p>
         <p>
           one Plus:
-          <span className="text-warning"> {onePlus ? 'Yes' : 'No'}</span>
+          <span className="text-warning"> {adoptSiblings ? 'Yes' : 'No'}</span>
         </p>
         <p>
           currPetCount:<span className="text-primary"> {currPetCount}</span>{' '}
