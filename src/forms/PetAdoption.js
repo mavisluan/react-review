@@ -1,19 +1,11 @@
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
-import {
-  Container,
-  Form,
-  Button,
-  Card,
-  ListGroup,
-  Row,
-  Col,
-  ListGroupItem,
-} from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 import SingleInput from './SingleInput';
 import Select from './Select';
 import CheckboxOrRadioGroup from './CheckboxOrRadioGroup';
 import TextArea from './TextArea';
+import ConfirmModal from './ConfirmModal';
 
 const petOptions = [
   'dog',
@@ -39,6 +31,7 @@ const PetAdoption = () => {
     currPetInfo: '',
   };
   const [adoptInfo, setAdoptInfo] = useState(initialState);
+  const [show, setShow] = useState(false);
   const {
     fullName,
     ageRange,
@@ -82,7 +75,6 @@ const PetAdoption = () => {
     }
   };
 
-  // handle reset
   const handleReset = () =>
     setAdoptInfo({
       fullName: '',
@@ -114,93 +106,81 @@ const PetAdoption = () => {
     };
 
     console.log('Send data in a POST request', postData);
+    setShow(true);
+  };
+
+  const handleClose = () => {
+    setShow(false);
     handleReset();
   };
 
   return (
-    <Container className="shadow border-darken-4">
-      <h3 className="py-3">Pet Adoption Form</h3>
-      <Form>
-        <SingleInput
-          title="Full Name"
-          type="text"
-          setName="fullName"
-          setValue={fullName}
-          handleInput={handleInput}
-        />
-        <Select handleInput={handleInput} options={ageOptions} />
-        <CheckboxOrRadioGroup
-          title="Which kinds of pets would you like to adopt?"
-          setName="adoptPets"
-          options={petOptions}
-          selected={adoptPets}
-          type="checkbox"
-          controlFunction={handlePetSelection}
-        />
-        <CheckboxOrRadioGroup
-          title="Are you willing to adopt more than one pet if we have siblings for
+    <Container className="shadow border-darken-4 p-5">
+      <div>
+        <h3 className="py-3">Pet Adoption Form</h3>
+        <Form>
+          <SingleInput
+            title="Full Name"
+            type="text"
+            setName="fullName"
+            setValue={fullName}
+            handleInput={handleInput}
+          />
+          <Select handleInput={handleInput} options={ageOptions} />
+          <CheckboxOrRadioGroup
+            title="Which kinds of pets would you like to adopt?"
+            setName="adoptPets"
+            options={petOptions}
+            selected={adoptPets}
+            type="checkbox"
+            controlFunction={handlePetSelection}
+          />
+          <CheckboxOrRadioGroup
+            title="Are you willing to adopt more than one pet if we have siblings for
           adoption?"
-          setName="adoptSiblings"
-          options={siblingsOptions}
-          selected={adoptSiblings}
-          type="radio"
-          controlFunction={handleSiblingsSelection}
-        />
-        <SingleInput
-          title="How many pets do you currently own?"
-          type="number"
-          setName="currPetCount"
-          setValue={currPetCount}
-          min={0}
-          handleInput={handleInput}
-        />
-        <TextArea
-          title="If you currenlty own pets, please write their names, breeds, and an
+            setName="adoptSiblings"
+            options={siblingsOptions}
+            selected={adoptSiblings}
+            type="radio"
+            controlFunction={handleSiblingsSelection}
+          />
+          <SingleInput
+            title="How many pets do you currently own?"
+            type="number"
+            setName="currPetCount"
+            setValue={currPetCount}
+            min={0}
+            handleInput={handleInput}
+          />
+          <TextArea
+            title="If you currenlty own pets, please write their names, breeds, and an
         outline of their personalities."
-          type="textarea"
-          setName="currPetInfo"
-          setValue={currPetInfo}
-          placeholder="Please be thorough in your descriptions"
-          handleInput={handleInput}
-        />
-        <div className="d-flex justify-content-between">
-          <Button variant="link" type="button" onClick={handleReset}>
-            Clear Form
-          </Button>
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
-            Submit
-          </Button>
-        </div>
-      </Form>
-      <Card style={{ width: '18rem' }}>
-        <Card.Header>Input confirmation</Card.Header>
-        <ListGroup variant="flush">
-          <ListGroup.Item>
-            FullName: <span className="text-primary"> {fullName}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            AgeRange: <span className="text-warning"> {ageRange}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Pet Types:
-            {adoptPets.map((pet, index) => (
-              <span key={index} className="text-primary ml-2">
-                {index === adoptPets.length - 1 ? pet : `${pet},`}
-              </span>
-            ))}
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Adopt siblings:
-            <span className="text-warning"> {adoptSiblings[0]}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            currPetCount:<span className="text-primary"> {currPetCount}</span>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Description: <span className="text-warning"> {currPetInfo}</span>
-          </ListGroup.Item>
-        </ListGroup>
-      </Card>
+            type="textarea"
+            setName="currPetInfo"
+            setValue={currPetInfo}
+            placeholder="Please be thorough in your descriptions"
+            handleInput={handleInput}
+          />
+          <div className="d-flex justify-content-between">
+            <Button variant="link" type="button" onClick={handleReset}>
+              Clear Form
+            </Button>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </div>
+        </Form>
+      </div>
+      <ConfirmModal
+        show={show}
+        fullName={fullName}
+        ageRange={ageRange}
+        adoptPets={adoptPets}
+        adoptSiblings={adoptSiblings}
+        currPetCount={currPetCount}
+        currPetInfo={currPetInfo}
+        handleClose={handleClose}
+      />
     </Container>
   );
 };

@@ -6,8 +6,10 @@ const Select = ({ handleInput, options }) => (
   <Form.Group className="d-inline-flex">
     <Form.Control as="select" name="ageRange" onChange={handleInput}>
       <option>Choose your age range</option>
-      {options.map(option => (
-        <option value={option}>{option}</option>
+      {options.map((option, index) => (
+        <option value={option} key={index}>
+          {option}
+        </option>
       ))}
     </Form.Control>
   </Form.Group>
