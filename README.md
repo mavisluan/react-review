@@ -13,14 +13,9 @@ This is a React practice repo which contains small components organized by featu
 - Forms (React Bootstrap)
   - SingleInput
   - Select
-    - <Form.Control as="select" value={selectedOption} onChange={handleInput}>
-      - <option value="A"></option>
-      - <option value="B"></option>
-      - <option value="C"></option>
-    - </Form.Control>
+    - <Form.Control as="select" value={selectedOption} onChange={handleInput}></Form.Control>
   - CheckboxOfRadioGroup
-    - <Form.Check type="radio" value={item} checked={condition} onChange={handleInput}>
-    - </Form.Check>
+    - <Form.Check type="radio" value={item} checked={condition} onChange={handleInput}></Form.Check>
   - TextArea
     - <Form.Control as="textarea" row="3"></Form.Control>
 
