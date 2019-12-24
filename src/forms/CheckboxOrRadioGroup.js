@@ -6,7 +6,7 @@ const CheckboxOrRadioGroup = ({
   title,
   options,
   type,
-  selected,
+  selectedOptions,
   controlFunction,
   setName,
 }) => (
@@ -19,8 +19,8 @@ const CheckboxOrRadioGroup = ({
         label={item}
         name={item}
         value={item}
-        checked={selected.includes(item)}
-        onChange={() => controlFunction({ selected, item, setName })}
+        checked={selectedOptions.includes(item)}
+        onChange={() => controlFunction({ selectedOptions, item, setName })}
         className="col-6"
       ></Form.Check>
     ))}
@@ -31,7 +31,7 @@ CheckboxOrRadioGroup.propTypes = {
   title: PropTypes.string.isRequired,
   setName: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
-  selected: PropTypes.array.isRequired,
+  selectedOptions: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   controlFunction: PropTypes.func.isRequired,
 };

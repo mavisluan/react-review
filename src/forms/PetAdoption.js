@@ -126,12 +126,17 @@ const PetAdoption = () => {
             setValue={fullName}
             handleInput={handleInput}
           />
-          <Select handleInput={handleInput} options={ageOptions} />
+          <Select
+            handleInput={handleInput}
+            options={ageOptions}
+            selectedOption={ageRange}
+            placeholder="Choose your age range"
+          />
           <CheckboxOrRadioGroup
             title="Which kinds of pets would you like to adopt?"
             setName="adoptPets"
             options={petOptions}
-            selected={adoptPets}
+            selectedOptions={adoptPets}
             type="checkbox"
             controlFunction={handlePetSelection}
           />
@@ -140,7 +145,7 @@ const PetAdoption = () => {
           adoption?"
             setName="adoptSiblings"
             options={siblingsOptions}
-            selected={adoptSiblings}
+            selectedOptions={adoptSiblings}
             type="radio"
             controlFunction={handleSiblingsSelection}
           />
