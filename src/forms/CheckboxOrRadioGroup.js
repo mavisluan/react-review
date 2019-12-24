@@ -12,18 +12,20 @@ const CheckboxOrRadioGroup = ({
 }) => (
   <Form.Group>
     <Form.Label>{title}</Form.Label>
-    {options.map((item, index) => (
-      <Form.Check
-        key={index}
-        type={type}
-        label={item}
-        name={item}
-        value={item}
-        checked={selectedOptions.includes(item)}
-        onChange={() => controlFunction({ selectedOptions, item, setName })}
-        className="col-6"
-      ></Form.Check>
-    ))}
+    <div>
+      {options.map((item, index) => (
+        <Form.Check
+          key={index}
+          type={type}
+          label={item}
+          name={item}
+          value={item}
+          checked={selectedOptions.includes(item)}
+          onChange={() => controlFunction({ selectedOptions, item, setName })}
+          className="d-inline-flex col-6"
+        ></Form.Check>
+      ))}
+    </div>
   </Form.Group>
 );
 

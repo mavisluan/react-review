@@ -50,24 +50,24 @@ const PetAdoption = () => {
     setAdoptInfo({ ...adoptInfo, [name]: value });
   };
 
-  const handlePetSelection = ({ selected, item, setName }) => {
-    if (!selected.includes(item)) {
+  const handlePetSelection = ({ selectedOptions, item, setName }) => {
+    if (!selectedOptions.includes(item)) {
       console.log(`Item not selected`, item); // if pet not exists in selection, add it
       setAdoptInfo({
         ...adoptInfo,
-        [setName]: [...selected, item],
+        [setName]: [...selectedOptions, item],
       });
     } else {
       console.log(`Item selected`, item); // if pet exists in selection, remove it
       setAdoptInfo({
         ...adoptInfo,
-        [setName]: selected.filter(s => s !== item),
+        [setName]: selectedOptions.filter(s => s !== item),
       });
     }
   };
 
-  const handleSiblingsSelection = ({ selected, item, setName }) => {
-    if (!selected.includes(item)) {
+  const handleSiblingsSelection = ({ selectedOptions, item, setName }) => {
+    if (!selectedOptions.includes(item)) {
       setAdoptInfo({
         ...adoptInfo,
         [setName]: [item],

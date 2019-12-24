@@ -7,7 +7,7 @@ const Select = ({ handleInput, options, selectedOption, placeholder }) => (
     <Form.Control
       as="select"
       name="ageRange"
-      value={selectedOption} // value -> selected value
+      value={selectedOption}
       onChange={handleInput}
     >
       <option value="">{placeholder}</option>
