@@ -185,6 +185,7 @@ const PetAdoption = () => {
         currPetCount={currPetCount}
         currPetInfo={currPetInfo}
         handleClose={handleClose}
+        adoptInfo={adoptInfo}
       />
     </Container>
   );

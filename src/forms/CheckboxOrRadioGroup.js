@@ -22,7 +22,7 @@ const CheckboxOrRadioGroup = ({
           value={item}
           checked={selectedOptions.includes(item)}
           onChange={() => controlFunction({ selectedOptions, item, setName })}
-          className="d-inline-flex col-6"
+          className="d-inline-flex col-6 text-capitalize"
         ></Form.Check>
       ))}
     </div>
