@@ -37,7 +37,7 @@ ConfirmModal.propTypes = {
     ageRange: PropTypes.string,
     adoptPets: PropTypes.array,
     adoptSiblings: PropTypes.array,
-    // currPetCount: PropTypes.number,
+    currPetCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     currPetInfo: PropTypes.string,
   }).isRequired,
 };
