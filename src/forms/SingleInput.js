@@ -2,12 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 
-const SingleInput = ({ title, type, handleInput, setName, setValue, min }) => (
+const SingleInput = ({
+  title,
+  type,
+  handleInput,
+  setName,
+  setValue,
+  min,
+  placeholder,
+}) => (
   <Form.Group>
     <Form.Label className="font-weight-bold">{title}</Form.Label>
     <Form.Control
       type={type}
-      placeholder="Type first and last name here"
+      placeholder={placeholder}
       name={setName}
       value={setValue}
       onChange={handleInput}
@@ -24,6 +32,7 @@ SingleInput.propTypes = {
     .isRequired, // type: text --> string, type: number --> number
   handleInput: PropTypes.func.isRequired,
   min: PropTypes.number,
+  placeholder: PropTypes.string,
 };
 
 export default SingleInput;

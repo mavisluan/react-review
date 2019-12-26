@@ -120,6 +120,7 @@ const PetAdoption = () => {
         <h3 className="py-3">Pet Adoption Form</h3>
         <Form>
           <SingleInput /* Full name text input */
+            placeholder="Type first and last name here"
             title="Full Name"
             type="text"
             setName="fullName"
