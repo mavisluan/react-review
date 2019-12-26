@@ -10,7 +10,7 @@ const ConfirmModal = ({ show, handleClose, adoptInfo }) => (
     <Modal.Body>
       <ListGroup variant="flush">
         {Object.keys(adoptInfo).map(key => (
-          <ListGroup.Item>
+          <ListGroup.Item key={key}>
             <span className="font-weight-bold text-capitalize">{key}:</span>{' '}
             {Array.isArray(adoptInfo[key]) // if it's an array -> display items with comma in between
               ? adoptInfo[key].map((item, index) =>
@@ -28,7 +28,7 @@ const ConfirmModal = ({ show, handleClose, adoptInfo }) => (
     </Modal.Footer>
   </Modal>
 );
-
+// TODO: fix the currPetCount propTypes (when it gets passed, num --> string)
 ConfirmModal.propTypes = {
   show: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
@@ -37,7 +37,7 @@ ConfirmModal.propTypes = {
     ageRange: PropTypes.string,
     adoptPets: PropTypes.array,
     adoptSiblings: PropTypes.array,
-    currPetCount: PropTypes.number,
+    // currPetCount: PropTypes.number,
     currPetInfo: PropTypes.string,
   }).isRequired,
 };
