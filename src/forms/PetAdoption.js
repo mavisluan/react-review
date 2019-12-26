@@ -109,7 +109,7 @@ const PetAdoption = () => {
     setShow(true);
   };
 
-  const handleClose = () => {
+  const handleModalClose = () => {
     setShow(false);
     handleReset();
   };
@@ -119,20 +119,20 @@ const PetAdoption = () => {
       <div>
         <h3 className="py-3">Pet Adoption Form</h3>
         <Form>
-          <SingleInput
+          <SingleInput /* Full name text input */
             title="Full Name"
             type="text"
             setName="fullName"
             setValue={fullName}
             handleInput={handleInput}
           />
-          <Select
+          <Select /* Age range select */
             handleInput={handleInput}
             options={ageOptions}
             selectedOption={ageRange}
             placeholder="Choose your age range"
           />
-          <CheckboxOrRadioGroup
+          <CheckboxOrRadioGroup /* Pet type checkbox */
             title="Which kinds of pets would you like to adopt?"
             setName="adoptPets"
             options={petOptions}
@@ -140,7 +140,7 @@ const PetAdoption = () => {
             type="checkbox"
             controlFunction={handlePetSelection}
           />
-          <CheckboxOrRadioGroup
+          <CheckboxOrRadioGroup /* Sibling Adoption radio */
             title="Are you willing to adopt more than one pet if we have siblings for
           adoption?"
             setName="adoptSiblings"
@@ -149,7 +149,7 @@ const PetAdoption = () => {
             type="radio"
             controlFunction={handleSiblingsSelection}
           />
-          <SingleInput
+          <SingleInput /* Current pets number -> number input */
             title="How many pets do you currently own?"
             type="number"
             setName="currPetCount"
@@ -157,7 +157,7 @@ const PetAdoption = () => {
             min={0}
             handleInput={handleInput}
           />
-          <TextArea
+          <TextArea /* Current pets description --> Textarea */
             title="If you currenlty own pets, please write their names, breeds, and an
         outline of their personalities."
             type="textarea"
@@ -176,7 +176,7 @@ const PetAdoption = () => {
           </div>
         </Form>
       </div>
-      <ConfirmModal
+      <ConfirmModal /* Confirmation for the submitted data */
         show={show}
         fullName={fullName}
         ageRange={ageRange}
@@ -184,7 +184,7 @@ const PetAdoption = () => {
         adoptSiblings={adoptSiblings}
         currPetCount={currPetCount}
         currPetInfo={currPetInfo}
-        handleClose={handleClose}
+        handleClose={handleModalClose}
         adoptInfo={adoptInfo}
       />
     </Container>
