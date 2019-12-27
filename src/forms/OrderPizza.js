@@ -6,7 +6,6 @@ import CheckboxOrRadioGroup from './CheckboxOrRadioGroup';
 import Select from './Select';
 import TextArea from './TextArea';
 
-// const sizeOptions = ['small', 'medium', 'large'];
 const OrderPizza = () => {
   const initialState = {
     userName: '',
