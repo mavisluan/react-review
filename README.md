@@ -18,6 +18,11 @@ This is a React practice repo which contains small components organized by featu
     - <Form.Check type="radio" value={item} checked={condition} onChange={handleInput}></Form.Check>
   - TextArea
     - <Form.Control as="textarea" row="3"></Form.Control>
+    
+  - OrderPizza && PetAdoption (Container components)
+    - hold state for the app
+    - fetch fake data and update state
+    - fake data stays inside public folder
 
 ## Hooks
 
