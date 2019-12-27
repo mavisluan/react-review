@@ -1,0 +1,18 @@
+{
+  "userName": "",
+  "sizeOptions": ["small", "medium", "large"],
+  "selectedSize": ["large"],
+  "toppingOptions": [
+    "Pepperoni",
+    "bacon",
+    "sausage",
+    "mushrooms",
+    "spinach",
+    "jalapenos",
+    "onions",
+    "olives"
+  ],
+  "selectedTopping": "Pepperoni",
+  "glutenFree": false,
+  "notes": "extra crispy"
+}
