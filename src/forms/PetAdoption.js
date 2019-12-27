@@ -132,6 +132,7 @@ const PetAdoption = () => {
             options={ageOptions}
             selectedOption={ageRange}
             placeholder="Choose your age range"
+            setName="ageRange"
           />
           <CheckboxOrRadioGroup /* Pet type checkbox */
             title="Which kinds of pets would you like to adopt?"

@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 
-const Select = ({ handleInput, options, selectedOption, placeholder }) => (
+const Select = ({
+  handleInput,
+  options,
+  selectedOption,
+  placeholder,
+  setName,
+}) => (
   <Form.Group className="d-inline-flex">
     <Form.Control
       as="select"
-      name="ageRange"
+      name={setName}
       value={selectedOption}
       onChange={handleInput}
     >
@@ -25,6 +31,7 @@ Select.propTypes = {
   options: PropTypes.array.isRequired,
   selectedOption: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
+  setName: PropTypes.string.isRequired,
 };
 
 export default Select;

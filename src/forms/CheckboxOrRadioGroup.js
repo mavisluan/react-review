@@ -11,7 +11,7 @@ const CheckboxOrRadioGroup = ({
   setName,
 }) => (
   <Form.Group>
-    <Form.Label>{title}</Form.Label>
+    <Form.Label className="font-weight-bold">{title}</Form.Label>
     <div>
       {options.map((item, index) => (
         <Form.Check

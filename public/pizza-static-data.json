@@ -12,7 +12,8 @@
     "onions",
     "olives"
   ],
-  "selectedTopping": "Pepperoni",
-  "glutenFree": false,
-  "notes": "extra crispy"
+  "selectedTopping": "",
+  "glutenOptions": ["yes", "no"],
+  "selectedGluten": ["no"],
+  "notes": ""
 }

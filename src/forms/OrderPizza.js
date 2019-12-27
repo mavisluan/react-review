@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import axios from 'axios';
 import SingleInput from './SingleInput';
 import CheckboxOrRadioGroup from './CheckboxOrRadioGroup';
 import Select from './Select';
+import TextArea from './TextArea';
 
 // const sizeOptions = ['small', 'medium', 'large'];
 const OrderPizza = () => {
-  const [pizza, setPizza] = useState({
+  const initialState = {
     userName: '',
     sizeOptions: [],
     selectedSize: [],
     toppingOptions: [],
     selectedTopping: '',
-    glutenFree: false,
+    glutenOptions: [],
+    selectedGluten: [],
     notes: '',
-  });
+  };
+  const [pizza, setPizza] = useState(initialState);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,14 +33,6 @@ const OrderPizza = () => {
     fetchData();
   }, []);
 
-  // const initialState = {
-  //   userName: '',
-  //   size: ['large'],
-  //   topping: 'Pepperoni',
-  //   glutenFree: false,
-  //   notes: 'extra crispy',
-  // };
-  // const [pizza, setPizza] = useState(initialState);
   const handleInput = e => {
     const { name, value } = e.target;
     setPizza({
@@ -52,17 +47,33 @@ const OrderPizza = () => {
     selectedSize,
     toppingOptions,
     selectedTopping,
-    glutenFree,
+    glutenOptions,
+    selectedGluten,
     notes,
   } = pizza;
 
-  const sizeSelection = ({ selectedOptions, item, setName }) => {
+  const handleSingleSelection = ({ selectedOptions, item, setName }) => {
     if (!selectedOptions.includes(item))
       setPizza({ ...pizza, [setName]: [item] });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    console.log('submitted data', pizza);
+    setPizza({
+      ...pizza,
+      userName: '',
+      selectedSize: [],
+      selectedTopping: '',
+      selectedGluten: [],
+      notes: '',
+    });
   };
   return (
     <Container className="border border-darken-3 shadow-lg p-5">
       {console.log('pizza', pizza)}
+      <h3 className="py-3">Order Your Pizza</h3>
       <SingleInput
         title="Full Name"
         type="text"
@@ -77,8 +88,35 @@ const OrderPizza = () => {
         type="radio"
         selectedOptions={selectedSize}
         setName="selectedSize"
-        controlFunction={sizeSelection}
+        controlFunction={handleSingleSelection}
       />
+      <Select
+        options={toppingOptions}
+        setName="selectedTopping"
+        selectedOption={selectedTopping}
+        handleInput={handleInput}
+        placeholder="Choose Topping"
+        title="Topping"
+      />
+      <CheckboxOrRadioGroup
+        options={glutenOptions}
+        setName="selectedGluten"
+        title="Gluten free"
+        type="checkbox"
+        selectedOptions={selectedGluten}
+        controlFunction={handleSingleSelection}
+      />
+      <TextArea
+        title="special instructions"
+        placeholder="Extra crispy"
+        setName="notes"
+        setValue={notes}
+        type="textarea"
+        handleInput={handleInput}
+      />
+      <Button variant="primary" onClick={handleSubmit}>
+        Sumbit
+      </Button>
     </Container>
   );
 };
