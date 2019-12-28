@@ -1,5 +1,5 @@
 import React, { useReducer, useRef } from 'react';
-import { Container, Form, ListGroup } from 'react-bootstrap';
+import { Container, Form, ListGroup, Button } from 'react-bootstrap';
 import uuidv4 from 'uuid/v4';
 //                current State
 const reducer = (state, action) => {
@@ -8,7 +8,8 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'add':
       return [...state, { id: uuidv4(), name: action.name }]; // return new state
-
+    case 'remove':
+      return state.filter(item => item.id !== action.id);
     default:
       break;
   }
@@ -43,7 +44,16 @@ const ShoppingList = () => {
         <div className="py-4 font-weight-bold">Shopping List</div>
         {console.log('items', items)}
         {items.map(item => (
-          <ListGroup.Item key={item.id}>{item.name}</ListGroup.Item>
+          <ListGroup.Item key={item.id}>
+            {item.name}
+            <Button
+              variant="danger"
+              className="offset-2"
+              onClick={() => dispatch({ type: 'remove', id: item.id })}
+            >
+              Delete
+            </Button>
+          </ListGroup.Item>
         ))}
       </ListGroup>
     </Container>
