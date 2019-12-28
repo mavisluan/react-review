@@ -11,7 +11,7 @@ const reducer = (state, action) => {
     case 'remove':
       return state.filter(item => item.id !== action.id);
     default:
-      break;
+      return state;
   }
 };
 
