@@ -11,14 +11,16 @@ This is a React practice repo which contains small components organized by featu
   - Demo: Input a value and click on the button to get the value from alert
 
 - Forms (React Bootstrap)
+
   - SingleInput
   - Select
     - <Form.Control as="select" value={selectedOption} onChange={handleInput}></Form.Control>
   - CheckboxOfRadioGroup
     - <Form.Check type="radio" value={item} checked={condition} onChange={handleInput}></Form.Check>
   - TextArea
+
     - <Form.Control as="textarea" row="3"></Form.Control>
-    
+
   - OrderPizza && PetAdoption (Container components)
     - hold state for the app
     - fetch fake data and update state
@@ -53,6 +55,13 @@ This is a React practice repo which contains small components organized by featu
 - ContactForm: ControlledInput: Use ({ editId, updateFormState, updateUser,addUser, cancelUpdate, user: { name, phone } from the state
   - Render Consumer Component
   - Wrap {() => ( some code to display the view)} inside Consumer
+
+### useReducer hook
+
+- ShoppingList
+  - state is an array of items {id, name}
+  - reducer function takes 2 arguments (currentState, action) -> returns the new state based on the action's type
+  - useReducer(reducer fn, []) -> returns new state and dispatch function
 
 ## state management
 
