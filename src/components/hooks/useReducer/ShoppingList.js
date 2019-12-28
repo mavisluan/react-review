@@ -10,6 +10,8 @@ const reducer = (state, action) => {
       return [...state, { id: uuidv4(), name: action.name }]; // return new state
     case 'remove':
       return state.filter(item => item.id !== action.id);
+    case 'clear':
+      return [];
     default:
       return state;
   }
@@ -56,6 +58,13 @@ const ShoppingList = () => {
           </ListGroup.Item>
         ))}
       </ListGroup>
+      <Button
+        variant="warning"
+        className="mt-3"
+        onClick={() => dispatch({ type: 'clear' })}
+      >
+        Clear
+      </Button>
     </Container>
   );
 };
