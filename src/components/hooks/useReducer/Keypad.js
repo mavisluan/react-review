@@ -16,14 +16,13 @@ const generateUnlockCode = () => {
 const unlockOrder = generateUnlockCode();
 
 const initialState = {
-  show: false,
   position: 0,
   code: unlockOrder,
   status: ['_', '_', '_', '_', '_', '_'],
 };
 
 const reducer = (state, action) => {
-  const { position, code, status, show } = state;
+  const { position, code, status } = state;
   if (code[position] === action) {
     const newStatus = [...status];
     newStatus[position] = '*';
