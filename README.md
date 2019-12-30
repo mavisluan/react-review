@@ -80,6 +80,22 @@ This is a React practice repo which contains small components organized by featu
     - else
       - reset the state
 
+### useState
+
+- UpdateState
+
+### useEffect (ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount)
+
+- useEffect(() => { <br/>
+  effect <br/>
+  return () => { <br/>
+  cleanup <br/>
+  };<br/>
+  }, [input]) --> dependency array
+
+  - Always runs after the initial render (like ComponentDidMount)
+  - Second argument [input] is the list of dependencies (UseEffect() runs when the variable of the array changes)
+
 ## state management
 
 ### class component
@@ -109,7 +125,7 @@ This is a React practice repo which contains small components organized by featu
     - To copy in all the other parts that you don't intend to change (Use the spread operator ...)
     - Update the nested property of the object.
 
-- UpdateState (function component && hooks)
+- UpdateState (function component && useState hooks)
   - Room (state is boolean)
   - RandomList (state is an array)
   - AudioControls (state is an object)
