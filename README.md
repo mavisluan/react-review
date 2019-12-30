@@ -59,9 +59,26 @@ This is a React practice repo which contains small components organized by featu
 ### useReducer hook
 
 - ShoppingList
-  - state is an array of items {id, name}
-  - reducer function takes 2 arguments (currentState, action) -> returns the new state based on the action's type
-  - useReducer(reducer fn, []) -> returns new state and dispatch function
+
+  - State is an array of items {id, name}
+  - Reducer function takes 2 arguments (currentState, action) -> returns the new state based on the action's type
+  - UseReducer(reducer fn, []) -> returns new state and dispatch function
+
+- Keypad
+
+  - State is an object {position: 0, code: unlockOrder, status: ['_', '_', '_', '_', '_', '_']}
+
+    - Position tracks the steps of input
+    - UnlockOrder is an array of 6 numbers (1-6) generated randomly
+    - Status shows the status of input ( correct- move forward, wrong -clear and reset )
+
+  - Reducer function:
+    - dispatch(val): action = val
+    - if (code[position] === val)
+      - update corresponding position of the status value with '\*'
+      - increment position by 1
+    - else
+      - reset the state
 
 ## state management
 
