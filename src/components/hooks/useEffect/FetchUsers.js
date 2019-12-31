@@ -19,7 +19,7 @@ const FetchUsers = ({ searchValue }) => {
       }
     };
     fetchData();
-  }, [searchValue, setUsers]);
+  }, [searchValue, setUsers]); // useEffect runs on searchValue's change
 
   return (
     <div className="mt-3">

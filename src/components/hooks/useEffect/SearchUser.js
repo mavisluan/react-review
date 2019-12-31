@@ -8,7 +8,7 @@ const SearchUser = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setQuery(value);
+    setQuery(value); // set the search query when sumibt the form input
     setValue('');
   };
 
@@ -21,11 +21,12 @@ const SearchUser = () => {
         </div>
         <Form.Control
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={e => setValue(e.target.value) /* update the input value */}
           placeholder="Enter the country code to search"
         />
       </Form>
       {query.length > 0 && <FetchUsers searchValue={query} />}
+      {/* pass the query as searchValue props to <FetchUsers /> */}
     </Container>
   );
 };
