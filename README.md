@@ -96,6 +96,23 @@ This is a React practice repo which contains small components organized by featu
   - Always runs after the initial render (like ComponentDidMount)
   - Second argument [input] is the list of dependencies (UseEffect() runs when the variable of the array changes)
 
+- SearchUser
+
+  - Holds the state of input value and search query
+  - Update the input on every stroke of typing (onChange)
+  - Update the search query with the input value when sumbit the form (handleSubmit)
+  - pass the query to <FetchUsers searchValue={query} />
+
+- FetchUsers
+  - Holds the state of users
+  - useEffect(() => { <br/>
+    &emsp; fetchData <br/>
+    &emsp; setUsers(fetchedResult)
+    &emsp; };<br/>
+    }, [searchValue, setUsers]) --> dependency array
+    - setUsers is created only once (won't change)
+    - searchValue is received as props through <SearchUsers> 's query --> is updated on form's submission --> when searchValue is updated, useEffect runs --> fetchUsers and setUsers with fetched results
+
 ## state management
 
 ### class component
