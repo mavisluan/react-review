@@ -87,10 +87,10 @@ This is a React practice repo which contains small components organized by featu
 ### useEffect (ComponentDidMount, ComponentDidUpdate, ComponentWillUnmount)
 
 - useEffect(() => { <br/>
-  effect <br/>
-  return () => { <br/>
-  cleanup <br/>
-  };<br/>
+  &emsp; effect <br/>
+  &emsp; return () => { <br/>
+  &emsp; &emsp; cleanup <br/>
+  &emsp; };<br/>
   }, [input]) --> dependency array
 
   - Always runs after the initial render (like ComponentDidMount)
