@@ -99,9 +99,9 @@ This is a React practice repo which contains small components organized by featu
 - SearchUser
 
   - Holds the state of input value and search query
-  - Update the input on every stroke of typing (onChange)
-  - Update the search query with the input value when sumbit the form (handleSubmit)
-  - pass the query to <FetchUsers searchValue={query} />
+  - Updates the input on every stroke of typing (onChange)
+  - Updates the search query with the input value when sumbit the form (handleSubmit)
+  - Passes the query to FetchUsers component as searchValue props
 
 - FetchUsers
   - Holds the state of users
@@ -111,7 +111,7 @@ This is a React practice repo which contains small components organized by featu
     &emsp; };<br/>
     }, [searchValue, setUsers]) --> dependency array
     - setUsers is created only once (won't change)
-    - searchValue is received as props through <SearchUsers> 's query --> is updated on form's submission --> when searchValue is updated, useEffect runs --> fetchUsers and setUsers with fetched results
+    - searchValue is received as props through SearchUsers Component's query --> is updated on form's submission --> when searchValue is updated, useEffect runs --> fetchUsers and setUsers with fetched results
 
 ## state management
 
