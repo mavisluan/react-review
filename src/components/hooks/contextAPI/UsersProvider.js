@@ -50,7 +50,7 @@ export const UsersProvider = ({ children }) => {
   );
 };
 
-// WithUsersContext receives a component as props
+// WithUsersContext receives a component as argument
 // return the component wrapped with Consumer function
 export const WithUsersContext = Component => {
   const ComponentWithContext = props => (
