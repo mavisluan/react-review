@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { WithUsersContext } from './UsersProvider';
-
+// receive usersProvider as props
+// reaches value throught usersProvider
 const Navbar = ({ usersProvider }) => (
   <Row className="bg-warning p-3">
     {console.log('usersProvider', usersProvider)}
@@ -21,4 +22,5 @@ Navbar.propTypes = {
   // usersProvider= value = users array
 };
 
+// Call WithUsersContext() and pass Navbar as argument
 export default WithUsersContext(Navbar);
