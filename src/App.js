@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import CountingParent from './components/class/CoutingParent';
+import UsersInfo from './components/hooks/contextAPI/UsersInfo';
+import UsersStore from './components/hooks/contextAPI/UsersStore';
 
 function App() {
   return (
-    <div className="App">
-      <CountingParent />
-    </div>
+    <UsersStore>
+      <UsersInfo />
+    </UsersStore>
   );
 }
 
