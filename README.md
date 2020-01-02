@@ -28,6 +28,17 @@ This is a React practice repo which contains small components organized by featu
 
 ## Hooks
 
+### Context API
+
+- The React.createContext(defaultValue)
+  - Creates the context
+  - Returns the Provider and Consumer
+  - Context doens't hold any of its own state. It only passes data through Context
+- The Provider
+  - Accepts a value props (objects or actions)
+  - Provides data
+- The Consumer: extracts data
+
 ### A CRUD app with hooks
 
 - ContactContext
