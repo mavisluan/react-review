@@ -43,6 +43,24 @@ This is a React practice repo which contains small components organized by featu
 
 - The Consumer: extracts data
 
+### Advanced Context Patterns
+
+- WithUsersContext
+
+  - Receives a component as argument
+  - Returns the component wrapped with Context.Consumer
+  - Passes the Provider's value to the component as props
+
+- Navbar
+  - WithContext(Navbar)
+
+### UseContext hook
+
+- Room
+  - Get access to Provider's value with useContext() hook
+  - const context = useContext(contextValue)
+    - const { isLit, onToggleLight } = useContext(RoomContext);
+
 ### A CRUD app with hooks
 
 - ContactContext
