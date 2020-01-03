@@ -7,6 +7,7 @@ const UsersContext = React.createContext(null);
 export const UsersProvider = ({ children }) => {
   // receive children components as props
   const [users, setUsers] = useState([]); // hold the state
+  const [selectedId, setSelectedId] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,11 +43,13 @@ export const UsersProvider = ({ children }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [setUsers]);
   return (
     // pass users array to Provider through value props
     // Render children components
-    <UsersContext.Provider value={users}>{children}</UsersContext.Provider>
+    <UsersContext.Provider value={{ users, selectedId, setSelectedId }}>
+      {children}
+    </UsersContext.Provider>
   );
 };
 
