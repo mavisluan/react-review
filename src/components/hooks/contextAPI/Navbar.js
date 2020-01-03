@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Image } from 'react-bootstrap';
 import { WithUsersContext } from './UsersProvider';
 // receive usersProvider as props
 // reaches value throught usersProvider
 const Navbar = ({ usersProvider }) => (
-  <Row className="bg-warning p-3">
+  <Row className="bg-warning">
     {console.log('usersProvider', usersProvider)}
     <Col className="d-flex flex-wrap">
       {usersProvider.map(user => (
-        <span className="mr-2" key={user.id}>
-          {user.name.first}
-        </span>
+        <Image
+          key={user.id}
+          src={user.picture.thumbnail}
+          width="50em"
+          alt="avatar"
+          roundedCircle
+          className="p-1"
+        />
       ))}
     </Col>
   </Row>
