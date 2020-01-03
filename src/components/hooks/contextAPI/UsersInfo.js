@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Navbar from './Navbar';
+import Body from './Body';
 
 const UsersInfo = () => (
   <Container>
     <Navbar />
-    <Row className="bg-primary p-3">
-      <Col className="bg-danger" sm={6}>
-        Side bar
-      </Col>
-      <Col className="bg-success" sm={6}>
-        Content
-      </Col>
-    </Row>
+    <Body />
   </Container>
 );
 

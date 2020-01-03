@@ -18,7 +18,7 @@ const Avatar = ({ pictureUrl, action, size }) => (
 
 Avatar.propTypes = {
   pictureUrl: PropTypes.string.isRequired,
-  action: PropTypes.func.isRequired,
+  action: PropTypes.func,
   size: PropTypes.string.isRequired,
 };
 

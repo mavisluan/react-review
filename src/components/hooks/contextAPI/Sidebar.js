@@ -5,19 +5,21 @@ import Avatar from './Avatar';
 
 const Sidebar = ({ usersProvider: { users, selectedId } }) => {
   const selectedUser = users.find(user => user.id === selectedId);
-  console.log('selectedUser', selectedUser);
+  const { name, location, picture } = selectedUser || {
+    name: '',
+    location: { country: '' },
+    picture: { medium: '' },
+  };
 
   return (
     <div className="py-3 text-center text-white">
       {selectedUser ? (
         <div>
-          <Avatar size="80em" pictureUrl={selectedUser.picture.medium} />
+          <Avatar size="80em" pictureUrl={picture.medium} />
           <div className="text-wrap flex-wrap">
-            {selectedUser.name.first} {selectedUser.name.last}
+            {name.first} {name.last}
           </div>
-          <div className="text-wrap flex-wrap">
-            {selectedUser.location.country}
-          </div>
+          <div className="text-wrap flex-wrap">{location.country}</div>
         </div>
       ) : (
         <span className="font-weight-bold">Select one user from above</span>
