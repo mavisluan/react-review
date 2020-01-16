@@ -212,3 +212,12 @@ This is a React practice repo which contains small components organized by featu
     - is executed only once after the component mounts for the first time
     - make API requests and update the state with the response data
     - Notes: 'clearPosts' and 'Get Posts' update the state and cause re-rendering, but 'componentDidMount' will not be executed.
+
+## Validation
+- LoginForm
+  - manage error messages in state
+  - onSubmit
+    - validate the input value (set condition on state)
+      - update the error message if not valid
+      - clear the error messgage if valid
+      - clear the form input
