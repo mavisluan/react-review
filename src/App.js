@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-
-import RouterDemo from './components/router/RouterDemo';
+import LoginForm from './components/validator/LoginForm';
 
 function App() {
-  return <RouterDemo />;
+  return <LoginForm />;
 }
 
 export default App;
