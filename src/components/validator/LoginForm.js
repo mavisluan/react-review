@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Form,
@@ -9,7 +9,6 @@ import {
   FormGroup,
   FormText,
 } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
 const LoginForm = () => {
   const [user, setUser] = useState({
