@@ -214,10 +214,13 @@ This is a React practice repo which contains small components organized by featu
     - Notes: 'clearPosts' and 'Get Posts' update the state and cause re-rendering, but 'componentDidMount' will not be executed.
 
 ## Validation
-- LoginForm
+- LoginForm (set condition on the state)
   - manage error messages in state
   - onSubmit
     - validate the input value (set condition on state)
       - update the error message if not valid
       - clear the error messgage if valid
       - clear the form input
+
+- Validation module --> react-hook-form
+  - MiniValidationForm --> Uncontrolled Input

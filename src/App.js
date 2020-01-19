@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import ValidationForm from './components/validator/ValidationForm';
+import MiniValidationForm from './components/validator/MiniValidationForm';
 
 function App() {
-  return <ValidationForm />;
+  return <MiniValidationForm />;
 }
 
 export default App;
