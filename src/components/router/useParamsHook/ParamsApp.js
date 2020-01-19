@@ -6,6 +6,7 @@ const ParamsApp = () => (
   <Router>
     <Switch>
       <Route path="/:id">
+        {/* when route matches /:id, render <ParamsHome /> */}
         <ParamsHome />
       </Route>
       <Route path="/">
