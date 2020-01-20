@@ -233,3 +233,8 @@ This is a React practice repo which contains small components organized by featu
 
 - access URL paramaters
 - Example: ParamsApp & ParamsHome components
+
+### useHistory()
+
+- retrieve the history object within a component
+- Example: History Home & Redirect components
