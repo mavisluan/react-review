@@ -9,6 +9,7 @@ import {
   FormLabel,
 } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import brnv from 'bank-routing-number-validator';
 
 const MiniValidationForm = () => {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -65,6 +66,23 @@ const MiniValidationForm = () => {
         </FormGroup>
         {errors.exampleRequired && (
           <FormText className="text-danger">This field is required</FormText>
+        )}
+        <FormGroup>
+          <FormLabel className="text-primary font-weight-bold">
+            Enter Your Routing Number here
+          </FormLabel>
+          {/* include validation with required or other standard HTML validation rules */}
+          <FormControl
+            name="exampleValidate"
+            ref={register({
+              validate: value => brnv.ABARoutingNumberIsValid(value),
+              minLength: 9,
+            })}
+          />
+          <small className="text-muted">The input can NOT be empty.</small>
+        </FormGroup>
+        {errors.exampleValidate && (
+          <FormText className="text-danger">The input is NOT valid.</FormText>
         )}
         <Button type="submit" block className="mt-3">
           SUBMIT

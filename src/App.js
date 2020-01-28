@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import ParamsApp from './components/router/useParamsHook/ParamsApp';
+import MiniValidationForm from './components/validator/MiniValidationForm';
 
 function App() {
-  return <ParamsApp />;
+  return <MiniValidationForm />;
 }
 
 export default App;
