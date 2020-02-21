@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import MiniValidationForm from './components/validator/MiniValidationForm';
+import RouterDemo from './components/reachRouter/RouterDemo';
 
 function App() {
-  return <MiniValidationForm />;
+  return <RouterDemo />;
 }
 
 export default App;
